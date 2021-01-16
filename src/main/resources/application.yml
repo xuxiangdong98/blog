@@ -2,22 +2,6 @@ spring:
   thymeleaf:
     mode: HTML
 
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
-    username: root
-    data-password: 1234567
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-logging:
-  level:
-    root: info
-    com.xxd: debug
-  file:
-    path: log/blog.log
-
-
+  profiles:
+    active: pro
 

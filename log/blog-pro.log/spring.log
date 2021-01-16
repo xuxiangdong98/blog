@@ -1,0 +1,5 @@
+2021-01-16 15:40:35.541  INFO 18272 --- [restartedMain] com.xxd.blog.BlogApplication             : Starting BlogApplication on DESKTOP-0BQJQMM with PID 18272 (F:\BiYeSheJi\blog\target\classes started by 徐向东 in F:\BiYeSheJi\blog)
+2021-01-16 15:40:35.544  INFO 18272 --- [restartedMain] com.xxd.blog.BlogApplication             : The following profiles are active: pro
+2021-01-16 15:40:37.692  WARN 18272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-16 15:40:37.914  WARN 18272 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-01-16 15:40:38.076  INFO 18272 --- [restartedMain] com.xxd.blog.BlogApplication             : Started BlogApplication in 3.079 seconds (JVM running for 3.936)
