@@ -3,5 +3,5 @@ spring:
     mode: HTML
 
   profiles:
-    active: pro
+    active: dev
 
