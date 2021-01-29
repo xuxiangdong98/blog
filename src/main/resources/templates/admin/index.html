@@ -4,13 +4,12 @@
 		<meta charset="utf-8" />
 		<!-- 移动端预览设置 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>博客管理</title>
+		<title>博客管理首页</title>
 		<!-- 引入semantic-ui-css -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 		<link rel="stylesheet" href="../../static/css/my.css" />
 	</head>
 	<body>
-
 		<!-- 导航 -->
 		<nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment my-padded-tb-mini my-shadow-small">
 			<div class="ui container">
@@ -37,83 +36,15 @@
 				<i class="sidebar icon"></i>
 			</a>
 		</nav>
-		<!-- 二级导航 -->
-		<div class="ui attached pointing menu">
-			<div class="ui container">
-				<div class="right menu">
-					<a href="#" class="item">发布</a>
-					<a href="#" class="teal active item">列表</a>
-				</div>
-			</div>
-		</div>
 
 		<!-- 中间部分 -->
 		<div class="my-container-small my-padded-tb-big">
 			<div class="ui container">
-				<form action="#" method="post" class="ui segment form">
-					<div class="inline fields">
-						<div class="field">
-							<input type="text" name="title" placeholder="标题" />
-						</div>
-						<div class="field">
-							<div class="ui selection dropdown">
-								<input type="hidden" name="type" />
-								<i class="dropdown icon"></i>
-								<div class="default text">分类</div>
-								<div class="menu">
-									<div class="item" data-value="1">错误日志</div>
-									<div class="item" data-value="1">开发者手册</div>
-								</div>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui checkbox">
-								<input type="checkbox" name="recommend" id="recommend" />
-								<label for="recommend">推荐</label>
-							</div>
-						</div>
-						<div class="field">
-							<button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
-						</div>
-					</div>
-				</form>
-
-				<table class="ui celled table">
-					<thead>
-						<tr>
-							<th></th>
-							<th>标题</th>
-							<th>类型</th>
-							<th>推荐</th>
-							<th>更新时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>刻意练习清单</td>
-							<td>认知升级</td>
-							<td>是</td>
-							<td>2021-1-13 11:30</td>
-							<td>
-								<a href="#" class="ui mini teal basic button">编辑</a>
-								<a href="#" class="ui mini red basic button">删除</a>
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<th colspan="6">
-								<div class="ui mini pagination menu">
-									<a href="#" class="item">上一页</a>
-									<a href="#" class="item">下一页</a>
-								</div>
-								<a href="" class="ui mini right floated teal basic button">新增</a>
-							</th>
-						</tr>
-					</tfoot>
-				</table>
+				<div class="ui success large message">
+					<h3>Hi，</h3>
+					<p>徐向东，欢迎登录！</p>
+				</div>
+				<img src="https://picsum.photos/id/1005/1000/400" alt="" class="ui rounded bordered fluid image">
 
 			</div>
 		</div>
@@ -166,6 +97,7 @@
 		<!-- 引入semantic-ui-js(依赖jQuery) -->
 		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 		<!--/*/</th:block>/*/-->
+
 		<script>
 			$('.menu.toggle').click(function() {
 				$('.my-item').toggleClass('my-mobile-hide');

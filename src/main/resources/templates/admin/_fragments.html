@@ -21,16 +21,20 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment my-padded-tb-mini my-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">Blog</h2>
-            <a href="#" th:href="@{/}" class="my-item item my-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
-            <a href="#" th:href="@{/types}" class="my-item item my-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
-            <a href="#" th:href="@{/tags}" class="my-item item my-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
-            <a href="#" th:href="@{/archives}" class="my-item item my-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="calendar alternate outline icon"></i>归档</a>
-            <a href="#" th:href="@{/about}" class="my-item item my-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
-            <div class="right my-item item my-mobile-hide">
-                <div class="ui icon inverted transparent input">
-                    <input type="text" placeholder="Search......" value=""/>
-                    <i class="search link icon"></i>
+            <h2 class="ui teal header item">博客管理</h2>
+            <a href="#" class="active my-item item my-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
+            <a href="#" class="my-item item my-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" class="my-item item my-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <div class="right my-item my-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100">
+                        徐向东
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
                 </div>
             </div>
         </div>
