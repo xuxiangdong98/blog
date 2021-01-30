@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/admin")
-public class BlogsController {
+public class BlogController {
 
     @GetMapping("/blogs")
     public String blogs(){
