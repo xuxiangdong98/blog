@@ -8,28 +8,21 @@
     <!-- 引入semantic-ui-css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../static/css/my.css" th:href="@{/css/my.css}"/>
-    <!-- 引入typo.css布局样式 -->
-    <link rel="stylesheet" type="text/css" href="../static/css/typo.css" th:href="@{/css/typo.css}"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/animate.css" th:href="@{/css/animate.css}"/>
-    <!-- 引入代码高亮 -->
-    <link rel="stylesheet" type="text/css" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}"/>
-    <!-- 引入目录生成 -->
-    <link rel="stylesheet" type="text/css" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}"/>
 </head>
 <body>
 <!-- 导航 -->
 <nav th:fragment="menu(n)" class="ui inverted attached segment my-padded-tb-mini my-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">博客管理</h2>
+            <h2 class="ui teal header item">管理后台</h2>
             <a href="#" th:href="@{/admin/blogs}" class="my-item item my-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
             <a href="#" th:href="@{/admin/types}" class="my-item item my-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
             <a href="#" th:href="@{/admin/tags}" class="my-item item my-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
             <div class="right my-item my-mobile-hide menu">
                 <div class="ui dropdown item">
                     <div class="text">
-                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100">
-                        徐向东
+                        <img class="ui avatar image" src="https://picsum.photos/id/1005/100/100" th:src="@{${session.user.avatar}}">
+                        <span th:text="${session.user.nikename}">徐向东</span>
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
@@ -87,17 +80,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <!-- 引入semantic-ui-js(依赖jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <!-- 平滑滚动 -->
-    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-    <!-- 引入代码高亮js -->
-    <script src="../static/lib/prism/prism.js" th:src="@{lib/prism/prism.js}" type="text/javascript" charset="utf-8"></script>
-    <!-- 引入目录生成js -->
-    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{lib/tocbot/tocbot.min.js}" type="text/javascript" charset="utf-8"></script>
-    <!-- 引入url二维码生成js -->
-    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{lib/qrcode/qrcode.min.js}" type="text/javascript" charset="utf-8"></script>
-    <!-- 引入滑动侦测 -->
-    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{lib/waypoints/jquery.waypoints.min.js}" type="text/javascript" charset="utf-8"></script>
-
 </th:block>
 </body>
 </html>
