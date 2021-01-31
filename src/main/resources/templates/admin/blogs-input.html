@@ -112,7 +112,11 @@
 							<input type="text" name="firstPicture" id="firstPicture" th:value="*{firstPicture}" placeholder="首图引用地址" />
 						</div>
 					</div>
-					
+
+					<div class="required field">
+						<textarea name="description" th:text="*{description}" placeholder="博客描述..." maxlength="200"></textarea>
+					</div>
+
 					<div class="inline fields">
 						<div class="field">
 							<div class="ui checkbox">
@@ -243,7 +247,7 @@
 						}]
 					},
 					typeId : {
-						identifier : 'typeId',
+						identifier : 'type.id',
 						rules: [{
 							type : 'empty',
 							prompt: 'tips：请输入博客分类'
@@ -256,6 +260,13 @@
 							prompt: 'tips：请输入首图'
 						}]
 					},
+					description: {
+						identifier : 'description',
+						rules: [{
+							type : 'empty',
+							prompt: 'tips：请输入博客描述'
+						}]
+					}
 				}
 			});
 			
