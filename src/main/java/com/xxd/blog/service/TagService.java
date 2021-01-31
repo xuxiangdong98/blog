@@ -4,6 +4,8 @@ import com.xxd.blog.po.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * @author xxd
  * @create 2021-01-30 10:14
@@ -18,6 +20,11 @@ public interface TagService {
     Tag getTagByName(String name);
     /*分页查询*/
     Page<Tag> listTag(Pageable pageable);
+
+    List<Tag> listTag();
+
+    List<Tag> listTag(String ids);
+
     /*修改*/
     Tag updateTag(Long id,Tag tag);
     /*删除*/

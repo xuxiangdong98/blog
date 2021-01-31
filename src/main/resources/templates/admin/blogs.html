@@ -16,7 +16,7 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">博客管理</h2>
-            <a href="#" class="active my-item item my-mobile-hide"><i class="home icon"></i>博客</a>
+            <a href="#" class="my-item item my-mobile-hide"><i class="home icon"></i>博客</a>
             <a href="#" class="my-item item my-mobile-hide"><i class="idea icon"></i>分类</a>
             <a href="#" class="my-item item my-mobile-hide"><i class="tags icon"></i>标签</a>
             <div class="right my-item my-mobile-hide menu">
@@ -41,8 +41,8 @@
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
-            <a href="#" class="item">发布</a>
-            <a href="#" class="teal active item">列表</a>
+            <a href="#" th:href="@{/admin/blogs/input}" class=" item">发布</a>
+            <a href="#" th:href="@{/admin/blogs}" class="item active teal">列表</a>
         </div>
     </div>
 </div>
@@ -57,16 +57,19 @@
                     <input type="text" name="title" placeholder="标题"/>
                 </div>
                 <div class="field">
-                    <div class="ui selection dropdown">
-                        <input type="hidden" name="typeId"/>
-                        <i class="dropdown icon"></i>
-                        <div class="default text">分类</div>
-                        <div class="menu">
-                            <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
-                            <!--/*-->
-                            <div class="item" data-value="1">开发者手册</div>
-                            <!--*/-->
+                    <div class="ui labeled action input">
+                        <div class="ui type selection dropdown">
+                            <input type="hidden" name="typeId"/>
+                            <i class="dropdown icon"></i>
+                            <div class="default text">分类</div>
+                            <div class="menu">
+                                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+                                <!--/*-->
+                                <div class="item" data-value="1">开发者手册</div>
+                                <!--*/-->
+                            </div>
                         </div>
+                        <button id="clear-btn" class="ui compact button">clear</button>
                     </div>
                 </div>
                 <div class="field">
@@ -89,6 +92,7 @@
                     <th>标题</th>
                     <th>类型</th>
                     <th>推荐</th>
+                    <th>状态</th>
                     <th>更新时间</th>
                     <th>操作</th>
                 </tr>
@@ -99,6 +103,7 @@
                     <td th:text="${blog.title}">刻意练习清单</td>
                     <td th:text="${blog.type.name}">认知升级</td>
                     <td th:text="${blog.recommend} ? '是' : '否'">是</td>
+                    <td th:text="${blog.published} ? '发布' : '草稿'">是</td>
                     <td th:text="${blog.updateTime}">2021-1-13 11:30</td>
                     <td>
                         <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
@@ -108,16 +113,23 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th colspan="6">
+                    <th colspan="7">
                         <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
                             <a onclick="page(this)" th:attr="data-page=${page.number}-1"  href="#" class="item" th:unless="${page.first}">上一页</a>
                             <a onclick="page(this)" th:attr="data-page=${page.number}+1" href="#" class="item" th:unless="${page.last}">下一页</a>
                         </div>
-                        <a href="" class="ui mini right floated teal basic button">新增</a>
+                        <a href="#" th:href="@{/admin/blogs/input}" class="ui mini right floated teal basic button">新增</a>
                     </th>
                 </tr>
                 </tfoot>
             </table>
+
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">提示：</div>
+                <p th:text="${message}">恭喜，操作成功！</p>
+            </div>
+
         </div>
 
     </div>
@@ -187,6 +199,7 @@
     }
 
     $("#search-btn").click(function () {
+        $("[name='page']").val(0);
         loaddate();
     });
     /*异步获取数据 局部刷新显示*/
@@ -198,6 +211,23 @@
             page : $("[name='page']").val()
         });
     }
+
+    /*消息关闭提示初始化*/
+    $('.message .close')
+        .on('click',function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+
+    /*清除*/
+    $('#clear-btn')
+        .on('click', function() {
+            $('.ui.type.dropdown')
+                .dropdown('clear')
+            ;
+        })
+    ;
 </script>
 
 
