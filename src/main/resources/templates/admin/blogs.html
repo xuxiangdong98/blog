@@ -207,7 +207,7 @@
         $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
             title : $("[name='title']").val(),
             typeId : $("[name='typeId']").val(),
-            recommend : $("[name='recommend']").val(),
+            recommend : $("[name='recommend']").prop('checked'),
             page : $("[name='page']").val()
         });
     }
