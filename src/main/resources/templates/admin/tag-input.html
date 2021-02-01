@@ -48,7 +48,7 @@
 		</div>
 
 		<!-- 中间部分 -->
-		<div class="my-container-small my-padded-tb-big">
+		<div class="my-container my-padded-tb-big">
 			<div class="ui container">
 				<form action="#" method="post"  th:object="${tag}" th:action="*{id} == null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" class="ui form">
 					<input type="hidden" name="id" th:value="*{id}">

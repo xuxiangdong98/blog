@@ -35,7 +35,7 @@
 		</nav>
 
 		<!-- 中间部分:左右布局 -->
-		<div class="my-container-small my-padded-tb-big">
+		<div class="my-container my-padded-tb-big">
 			<div class="ui container">
 				<div class="ui stackable grid">
 					<!-- 左边博客列表 -->
@@ -47,238 +47,59 @@
 									<h3 class="ui teal header">博客</h3>
 								</div>
 								<div class="right aligned column">
-									共<h2 class="ui orange header my-inline-block my-text-thin"> 14 </h2>篇
+									共<h2 class="ui orange header my-inline-block my-text-thin" th:text="${page.totalElements}"> 14 </h2>篇
 								</div>
 							</div>
 						</div>
-
 						<!-- content-items -->
 						<div class="ui attached segment">
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
+							<div class="ui padded vertical segment my-padded-tb-large" th:each="blog : ${page.content}">
+								<div class="ui middle aligned mobile reversed stackable grid" >
 									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
+										<h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="my-black" th:text="${blog.title}">你真正快乐吗?</a></h3>
+										<p class="my-text" th:text="|${blog.description}......|">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
 										<div class="ui grid">
 											<div class="eleven wide column">
 												<div class="ui mini horizontal link list">
 													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
+														<img src="https://picsum.photos/id/1005/100/100" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+														<div class="content"><a class="header" th:text="${blog.user.nikename}">徐向东</a></div>
 													</div>
 													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
+														<i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2021-1-11</span>
 													</div>
 													<div class="item">
-														<i class="eye icon"></i> 111
+														<i class="eye icon" ></i><span th:text="${blog.views}">111</span>
 													</div>
 
 												</div>
 											</div>
 
 											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
+												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin" th:text="${blog.type.name}">认知升级</a>
 											</div>
 										</div>
 									</div>
 									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+										<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+											<img src="https://picsum.photos/id/1005/800/450" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image" >
 										</a>
 									</div>
 								</div>
 
 							</div>
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
-									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
-										<div class="ui grid">
-											<div class="eleven wide column">
-												<div class="ui mini horizontal link list">
-													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
-													</div>
-													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
-													</div>
-													<div class="item">
-														<i class="eye icon"></i> 111
-													</div>
-
-												</div>
-											</div>
-
-											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
-											</div>
-										</div>
-									</div>
-									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
-										</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
-									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
-										<div class="ui grid">
-											<div class="eleven wide column">
-												<div class="ui mini horizontal link list">
-													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
-													</div>
-													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
-													</div>
-													<div class="item">
-														<i class="eye icon"></i> 111
-													</div>
-
-												</div>
-											</div>
-
-											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
-											</div>
-										</div>
-									</div>
-									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
-										</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
-									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
-										<div class="ui grid">
-											<div class="eleven wide column">
-												<div class="ui mini horizontal link list">
-													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
-													</div>
-													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
-													</div>
-													<div class="item">
-														<i class="eye icon"></i> 111
-													</div>
-
-												</div>
-											</div>
-
-											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
-											</div>
-										</div>
-									</div>
-									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
-										</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
-									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
-										<div class="ui grid">
-											<div class="eleven wide column">
-												<div class="ui mini horizontal link list">
-													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
-													</div>
-													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
-													</div>
-													<div class="item">
-														<i class="eye icon"></i> 111
-													</div>
-
-												</div>
-											</div>
-
-											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
-											</div>
-										</div>
-									</div>
-									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
-										</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="ui padded vertical segment my-padded-tb-large">
-								<div class="ui mobile reversed stackable grid">
-									<div class="eleven wide column">
-										<h3 class="ui header">你真正快乐吗?</h3>
-										<p class="my-text">我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,我不知真正的快乐,你不是真正的快乐,你懂我的快乐吗,</p>
-										<div class="ui grid">
-											<div class="eleven wide column">
-												<div class="ui mini horizontal link list">
-													<div class="item">
-														<img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
-														<div class="content"><a class="header">徐向东</a></div>
-													</div>
-													<div class="item">
-														<i class="calendar icon"></i> 2021-1-11
-													</div>
-													<div class="item">
-														<i class="eye icon"></i> 111
-													</div>
-
-												</div>
-											</div>
-
-											<div class="right aligned five wide column">
-												<a href="#" target="_blank" class="ui pink basic label my-padded-tiny my-text-thin">认知升级</a>
-											</div>
-										</div>
-									</div>
-									<div class="five wide column">
-										<a href="#" target="_blank">
-											<img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
-										</a>
-									</div>
-								</div>
-
-							</div>
-
 						</div>
-
 						<!-- footer -->
-						<div class="ui bottom attached segment">
+						<div class="ui bottom attached segment" th:if="${page.totalPages}>1">
 							<div class="ui middle aligned two column grid">
 								<div class="column">
-									<a href="#" class="ui mini teal basic button">上一页</a>
+									<a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class="ui mini teal basic button">上一页</a>
 								</div>
 								<div class="right aligned column">
-									<a href="#" class="ui mini teal basic button">下一页</a>
+									<a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}" class="ui mini teal basic button">下一页</a>
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<!-- 右边的top -->
 					<div class="five wide column">
@@ -297,29 +118,9 @@
 
 							<div class="ui teal segment">
 								<div class="ui fluid vertical menu">
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
-									</a>
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
-									</a>
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
-									</a>
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
-									</a>
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
-									</a>
-									<a href="#" class="item">
-										学习日志
-										<div class="ui teal basic left pointing label">13</div>
+									<a href="#" class="item" th:each="type : ${types}">
+										<span th:text="${type.name}">学习日志</span>
+										<div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
 									</a>
 								</div>
 							</div>
@@ -337,37 +138,10 @@
 									</div>
 								</div>
 							</div>
-
 							<div class="ui teal segment">
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
-								</a>
-								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny">
-									方法论 <div class="detail">13</div>
+								<a href="#" target="_blank" class="ui teal basic left pointing label my-magin-tb-tiny" th:each="tag : ${tags}">
+									<span th:text="${tag.name}">方法论</span>
+									<div class="detail" th:text="${#arrays.length(tag.blogs)}">13</div>
 								</a>
 							</div>
 						</div>
@@ -376,38 +150,9 @@
 							<div class="ui secondary segment my-black">
 								<i class="book icon"></i>最新推荐
 							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
+							<div class="ui segment" th:each="blog : ${recommendBlogs}">
+								<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="my-black my-text-thin" th:text="${blog.title}">用户故事</a>
 							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-							<div class="ui segment">
-								<a href="#" target="_blank" class="my-black my-text-thin">用户故事</a>
-							</div>
-
-
 						</div>
 						<!-- 二维码 -->
 						<h4 class="ui horizontal divider header my-magin-top-large">扫码关注我</h4>
@@ -460,12 +205,12 @@
 			</div>
 
 		</footer>
-<!--/*/<th:block th:replace="_fragments :: script" >/*/-->
+		<!--/*/<th:block th:replace="_fragments :: script" >/*/-->
 		<!-- 引入jQuery -->
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 		<!-- 引入semantic-ui-js(依赖jQuery) -->
 		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-<!--/*/</th:block>/*/-->
+		<!--/*/</th:block>/*/-->
 
 		<script>
 			$('.menu.toggle').click(function (){

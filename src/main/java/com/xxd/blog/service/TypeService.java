@@ -23,6 +23,9 @@ public interface TypeService {
 
     List<Type> listType();
 
+    /*首页分类标签列表 size：显示拿到的分类条数*/
+    List<Type> listTypeTop(Integer size);
+
     /*修改*/
     Type updateType(Long id,Type type);
     /*删除*/

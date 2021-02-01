@@ -25,10 +25,13 @@ public interface TagService {
 
     List<Tag> listTag(String ids);
 
+    List<Tag> listTagTop(Integer size);
+
     /*修改*/
     Tag updateTag(Long id,Tag tag);
     /*删除*/
     void deleteTag(Long id);
+
 
 
 }

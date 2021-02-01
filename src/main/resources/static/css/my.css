@@ -1,5 +1,7 @@
 body {
 	background: url("../img/bg.png");
+	/*background-repeat: no-repeat !important;*/
+	/*background-attachment: fixed !important;*/
 }
 
 .my-padded-mini {
@@ -188,3 +190,4 @@ body {
 	bottom: 0 !important;
 	right: 0 !important;
 }
+
