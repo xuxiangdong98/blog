@@ -23,15 +23,17 @@
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">Blog</h2>
             <a href="#" th:href="@{/}" class="my-item item my-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
-            <a href="#" th:href="@{/types}" class="my-item item my-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
-            <a href="#" th:href="@{/tags}" class="my-item item my-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/types/-1}" class="my-item item my-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="my-item item my-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
             <a href="#" th:href="@{/archives}" class="my-item item my-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="calendar alternate outline icon"></i>归档</a>
             <a href="#" th:href="@{/about}" class="my-item item my-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
             <div class="right my-item item my-mobile-hide">
-                <div class="ui icon inverted transparent input">
-                    <input type="text" placeholder="Search......" value=""/>
-                    <i class="search link icon"></i>
-                </div>
+                <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" name="query" placeholder="Search......" th:value="${query}"/>
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -48,7 +50,7 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img src="../static/img/wechat.jpg" th:src="@{img/wechat.jpg}" class="ui rounded image" alt="" style="width: 110px;">
+                        <img src="../static/img/wechat.jpg" th:src="@{/img/wechat.jpg}" class="ui rounded image" alt="" style="width: 110px;">
                     </div>
                 </div>
             </div>
@@ -93,13 +95,13 @@
     <!-- 平滑滚动 -->
     <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
     <!-- 引入代码高亮js -->
-    <script src="../static/lib/prism/prism.js" th:src="@{lib/prism/prism.js}" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}" type="text/javascript" charset="utf-8"></script>
     <!-- 引入目录生成js -->
-    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{lib/tocbot/tocbot.min.js}" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}" type="text/javascript" charset="utf-8"></script>
     <!-- 引入url二维码生成js -->
-    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{lib/qrcode/qrcode.min.js}" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}" type="text/javascript" charset="utf-8"></script>
     <!-- 引入滑动侦测 -->
-    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{lib/waypoints/jquery.waypoints.min.js}" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}" type="text/javascript" charset="utf-8"></script>
 
 </th:block>
 </body>

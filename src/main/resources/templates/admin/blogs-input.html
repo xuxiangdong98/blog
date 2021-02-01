@@ -60,7 +60,7 @@
 							<div class="ui selection compact teal basic dropdown label">
 								<input type="hidden" name="flag" value="原创" th:value="*{flag}" />
 								<i class="dropdown icon"></i>
-								<div class="text">原创</div>
+								<div class="text">版权</div>
 								<div class="menu">
 									<div class="item" data-value="原创">原创</div>
 									<div class="item" data-value="转载">转载</div>
@@ -266,7 +266,14 @@
 							type : 'empty',
 							prompt: 'tips：请输入博客描述'
 						}]
-					}
+					},
+					flag : {
+						identifier : 'flag',
+						rules: [{
+							type : 'empty',
+							prompt: 'tips：请输入博客版权'
+						}]
+					},
 				}
 			});
 			

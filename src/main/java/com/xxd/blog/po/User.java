@@ -16,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    private String nikename;    //昵称
+    private String nickname;    //昵称
     private String username;    //用户名
     private String password;    //密码
     private String email;    //邮箱
@@ -42,12 +42,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNikename() {
-        return nikename;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNikename(String nikename) {
-        this.nikename = nikename;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getUsername() {
@@ -118,7 +118,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", nikename='" + nikename + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

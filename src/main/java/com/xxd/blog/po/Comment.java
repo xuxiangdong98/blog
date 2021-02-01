@@ -17,7 +17,7 @@ public class Comment {
     @GeneratedValue
 
     private Long id;
-    private String nikename;    //昵称
+    private String nickname;    //昵称
     private String email;   //邮箱
     private String content; //内容
     private String avatar;  //头像
@@ -46,12 +46,12 @@ public class Comment {
         this.id = id;
     }
 
-    public String getNikename() {
-        return nikename;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNikename(String nikename) {
-        this.nikename = nikename;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getEmail() {
@@ -114,11 +114,14 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "id=" + id +
-                ", nikename='" + nikename + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
+                ", blog=" + blog +
+                ", replayComments=" + replayComments +
+                ", parentComment=" + parentComment +
                 '}';
     }
 }
