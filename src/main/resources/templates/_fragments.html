@@ -54,19 +54,24 @@
                     </div>
                 </div>
             </div>
-            <div class="three wide column">
+            <div class="three wide column" >
                 <h4 class="ui inverted header my-text-thin my-text-spaced ">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" target="_blank" class="item">用户故事</a>
-                    <a href="#" target="_blank" class="item">用户故事</a>
-                    <a href="#" target="_blank" class="item">用户故事</a>
+                <div id="newblog-container">
+                    <div class="ui inverted link list" th:fragment="newblogList">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事</a>
+                        <!--/*-->
+                        <a href="#" target="_blank" class="item">用户故事</a>
+                        <a href="#" target="_blank" class="item">用户故事</a>
+                        <!--*/-->
+                    </div>
                 </div>
+
             </div>
             <div class="four wide column">
                 <h4 class="ui inverted header my-text-thin my-text-spaced ">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">Email: xuxiangdong98@163.com</a>
-                    <a href="#" class="item">QQ: 1146752206</a>
+                    <a href="#" class="item">Email: <span th:text="#{index.email}">xuxiangdong98@163.com</span> </a>
+                    <a href="#" class="item">QQ: <span th:text="#{index.qnumber}">1146752206</span></a>
                 </div>
             </div>
             <div class="four wide column">
@@ -102,7 +107,9 @@
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}" type="text/javascript" charset="utf-8"></script>
     <!-- 引入滑动侦测 -->
     <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}" type="text/javascript" charset="utf-8"></script>
-
+    <script>
+        $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+    </script>
 </th:block>
 </body>
 </html>
